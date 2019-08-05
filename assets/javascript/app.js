@@ -15,9 +15,12 @@ function renderButtons() {
     var a = $("<button>");
     // Adding a class
     a.addClass("animal");
-    a.addClass("btn btn-primary");
+    a.addClass("btn btn-primary m-2");
     // Adding a data-attribute with a value of the movie at index i ?? or data-animal?
-    a.attr("data-animal", animals[i]);
+    a.attr({
+      "data-animal": animals[i],
+      "type": "button"
+    });
     // Providing the button's text with a value of the movie at index i
     a.text(animals[i]);
     // Adding the button to the HTML
@@ -71,7 +74,7 @@ function displayAnimalGifs() {
       for (var i = 0; i < results.length; i++) {
 
         // Creating and storing a div tag
-        var animalDiv = $("<div>");
+        var animalDiv = $("<span>");
 
         // Creating a paragraph tag with the result item's rating
         var p = $("<p>").text("Rating: " + results[i].rating);
@@ -86,15 +89,24 @@ function displayAnimalGifs() {
         animalAnimation.addClass("animal-animated");
 
 
+        // animalDiv.css({
+        //   "display": "inline",
+        //   "position": "relative"
+        // });
         // Appending the paragraph and image tag to the animalDiv
         animalDiv.append(p);
         animalDiv.append(animalImage);
         animalDiv.append(animalAnimation);
         //Adding class of animal-image to animalDiv
-        animalDiv.addClass("animal-image")
+        animalDiv.addClass("animal-image m-2");
+        // animalDiv.addClass("");
+        //adding css properties to the animalDiv so they appear side by side
+        $("animalDiv img").css('display', 'inline-block')
+        // animalDiv.addClass("flex-parent");
+        //hiding animalAnimation primarily
         animalAnimation.hide();
         // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
-        $("#gifs-appear-here").prepend(animalDiv);
+        $("#gifs-appear-here").append(animalDiv);
       }
     });
 }
