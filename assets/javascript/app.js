@@ -78,19 +78,37 @@ function displayAnimalGifs() {
 
         // Creating and storing an image tag
         var animalImage = $("<img>");
+        var animalAnimation = $("<img>");
         // Setting the src attribute of the image to a property pulled off the result item
-        animalImage.attr("src", results[i].images.fixed_height.url);
+        animalImage.attr("src", results[i].images.fixed_height_still.url);
+        animalImage.addClass("animal-fixed");
+        animalAnimation.attr("src", results[i].images.fixed_height.url);
+        animalAnimation.addClass("animal-animated");
+
 
         // Appending the paragraph and image tag to the animalDiv
         animalDiv.append(p);
         animalDiv.append(animalImage);
-
+        animalDiv.append(animalAnimation);
+        //Adding class of animal-image to animalDiv
+        animalDiv.addClass("animal-image")
+        animalAnimation.hide();
         // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
         $("#gifs-appear-here").prepend(animalDiv);
       }
     });
-};
+}
+
+function changeGifs() {
+  $(".animal-fixed", this).toggle();
+  $(".animal-animated", this).toggle();
+
+}
 // Adding a click event listener to all elements with a class of "animal
 $(document).on("click", ".animal", displayAnimalGifs);
+// Adding a click event listener to all elements with a class of "animal
+$(document).on("click", ".animal-image", changeGifs);
+
+
 // Calling the renderButtons function at least once to display the initial list of movies
 renderButtons();
