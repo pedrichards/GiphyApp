@@ -1,0 +1,10 @@
+.belowbuttons {
+    display: block;
+    margin-top: 30px;
+    /* position: absolute */
+}
+
+button {
+    display: inline-block;
+    margin: 5px;
+}
