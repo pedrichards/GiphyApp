@@ -40,12 +40,11 @@ $("#add-animal").on("click", function (event) {
   renderButtons();
 });
 
-// Calling the renderButtons function at least once to display the initial list of movies
-renderButtons();
 
 // Adding click event listen listener to all buttons
-$("button.animal").on("click", function () {
-  // Grabbing and storing the data-animal property value from the button
+// $("button.animal").on("click", function () {
+// Grabbing and storing the data-animal property value from the button
+function displayAnimalGifs() {
 
 
   var animal = $(this).attr("data-animal");
@@ -90,4 +89,8 @@ $("button.animal").on("click", function () {
         $("#gifs-appear-here").prepend(animalDiv);
       }
     });
-});
+};
+// Adding a click event listener to all elements with a class of "animal
+$(document).on("click", ".animal", displayAnimalGifs);
+// Calling the renderButtons function at least once to display the initial list of movies
+renderButtons();
