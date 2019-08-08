@@ -1,6 +1,6 @@
 var animals = ["rhinocerous", "platypus", "dingo", "armadillo", "aardvark", "fossa", "olinguito"];
 
-// Function for displaying movie data
+// Function for displaying animal data
 function renderButtons() {
 
   // Deleting the movie buttons prior to adding new movie buttons
@@ -98,7 +98,7 @@ function displayAnimalGifs() {
         animalDiv.append(animalImage);
         animalDiv.append(animalAnimation);
         //Adding class of animal-image to animalDiv
-        animalDiv.addClass("animal-image m-2 col-6 col-md-4 col-lg-3");
+        animalDiv.addClass("animal-image m-2");
         // animalDiv.addClass("");
         //adding css properties to the animalDiv so they appear side by side
         $("animalDiv img").css('display', 'inline-block')
